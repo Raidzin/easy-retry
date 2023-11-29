@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "easy-retry"
+version = "0.1.0"
+description = ""
+authors = ["Raidzin <agonch2001@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.4.3"
+mypy = "^1.7.1"
+ruff = "^0.1.6"
+
+
+[tool.poetry.group.dev.dependencies]
+isort = "^5.12.0"
+
+[tool.ruff]
+line-length = 80
+
+[tool.ruff.lint]
+select = ["A", "B", "E", "F", 'I']
+
+[tool.isort]
+src_paths = ["easy_retry"]
+multi_line_output = 3
+include_trailing_comma = true
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
