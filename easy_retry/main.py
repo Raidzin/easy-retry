@@ -4,10 +4,12 @@ from functools import wraps
 from time import sleep
 from typing import (
     Callable,
+    Iterable,
+    Literal,
     ParamSpec,
     Protocol,
     Type,
-    TypeVar, Literal, Iterable,
+    TypeVar,
 )
 
 E = TypeVar('E', bound=BaseException)
@@ -32,6 +34,8 @@ def retry(
     def handle_exception(error: E, attempt):
         if handler is not None:
             handler(error, attempt)
+        if exceptions is None:
+            return
         match mode:
             case 'handle':
                 handle = type(error) in exceptions

@@ -29,6 +29,12 @@ src_paths = ["easy_retry"]
 multi_line_output = 3
 include_trailing_comma = true
 
+[tool.pytest.ini_options]
+addopts = "--verbosity=1"
+testpaths = [
+    "tests"
+]
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
